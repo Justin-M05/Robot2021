@@ -29,7 +29,8 @@ public class TeleopDrive extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    driveTrainSubsystem.arcadeDrive(controller.getY(Hand.kLeft), controller.getX(Hand.kRight));
+    driveTrainSubsystem.arcadeDrive(controller.getY(Hand.kLeft), controller.getX(Hand.kLeft));
+
   }
 
   // Called once the command ends or is interrupted.

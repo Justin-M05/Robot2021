@@ -28,7 +28,6 @@ public class FlyWheelSubsystem extends SubsystemBase {
     flyWheelSlave.restoreFactoryDefaults();
     flyWheelMaster.restoreFactoryDefaults();
     flyWheelSlave.follow(flyWheelMaster, true);
-    flyWheelMaster.setOpenLoopRampRate(.2);
   }
 
   @Override

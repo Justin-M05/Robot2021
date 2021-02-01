@@ -15,6 +15,7 @@ import frc.robot.subsystems.FlyWheelSubsystem;
 import frc.robot.subsystems.IndexerSubsystem;
 import frc.robot.subsystems.IntakeSubsystem;
 import edu.wpi.first.wpilibj2.command.Command;
+import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 
 /**
  * This class is where the bulk of the robot should be declared. Since Command-based is a
@@ -31,8 +32,9 @@ public class RobotContainer {
   private final IntakeSubsystem intake = new IntakeSubsystem();
   private final FlyWheelSubsystem flyWheel = new FlyWheelSubsystem();
   private final Operate operate = new Operate(flyWheel, controller, indexer, intake);
-  private final Shoot shoot = new Shoot(flyWheel, controller, indexer);
+  
 
+  
   
 
   // The robot's subsystems and commands are defined here...
@@ -56,7 +58,9 @@ public class RobotContainer {
    * edu.wpi.first.wpilibj.Joystick} or {@link XboxController}), and then passing it to a {@link
    * edu.wpi.first.wpilibj2.command.button.JoystickButton}.
    */
-  private void configureButtonBindings() {}
+  private void configureButtonBindings() {
+    new JoystickButton(controller, XboxController.Button.kA.value).whenHeld(new Shoot(flyWheel, indexer, intake));
+  }
 
   /**
    * Use this to pass the autonomous command to the main {@link Robot} class.
